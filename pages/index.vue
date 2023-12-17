@@ -11,7 +11,7 @@
 
 
     <p>Using v-html="$t(...)":</p>
-    <div v-html="$t('test-stuff')"></div>
+    <div :key="theKey" v-html="$t('test-stuff')"></div>
 
     <hr>
 
@@ -22,6 +22,7 @@
 
     <button @click="makeEnglish()">Make English</button>
     <button @click="makeGerman()">Make German</button>
+    <button @click="forceUpdate()">Force update</button>
 
   </div>
 </template>
@@ -37,6 +38,11 @@ function makeEnglish() {
 
 function makeGerman() {
   i18n.setLocale("de-DE")
+}
+
+var theKey = ref(0)
+function forceUpdate() {
+  theKey.value += 1
 }
 
 </script>
