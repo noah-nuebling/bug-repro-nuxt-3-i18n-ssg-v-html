@@ -1,74 +1,28 @@
+# Readme
 
-To install dependencies: `pnpm install`\
-To test: `pnpm dev --open`\
-To deploy: `pnpm upload`
+Bug: In Nuxt 3 i18n, using `v-html` with `$t` is broken for `SSG`.
 
-See [Notes.md](Notes.md)
+Use this repo to reproduce the bug.
 
-Not sure if vvv below vvv is relevant
+## Reproduction steps
 
----
+1. Render and serve the site statically
+    ```bash
+    pnpm install; pnpm generate; npx serve .output/public/
+    ```
+2. View the site by opening `http://localhost:3000/` in your browser.
+3. Click the "Make German" button. The text on the page will switch to German, and the url will change to `http://localhost:3000/de-DE`. In the background this will set a cookie that your language preference is German.
+4. Open the base url `http://localhost:3000/` again. This will now redirect you to `http://localhost:3000/de-DE`, because of the cookie. But the text on the page will remain English instead of changing to German.
 
-# Nuxt 3 Minimal Starter
+## Notes
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- This issue seems to not only occur with the cookie, but also when the user is redirected to the German site because of their browser language.
+- This issue only occurs if you use 
+    ```html
+    <p v-html="$t(<some-key>)"></p>
+    ``` 
+    If you use
+    ```html
+    <p>{{ $t(<some-key>) }}</p>`
+    ```
+    then the issue doesn't occur.
