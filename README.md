@@ -6,13 +6,17 @@ Use this repo to reproduce the bug.
 
 ## Reproduction steps
 
-1. Render and serve the site statically
+0. Checkout this repo to your computer (I couldn't get it to work on Stackblitz)
+    ```bash
+    git clone git@github.com:noah-nuebling/bug-repro-nuxt-3-i18n-ssg-v-html.git
+    ```
+2. Render and serve the site statically
     ```bash
     pnpm install; pnpm generate; npx serve .output/public/
     ```
-2. View the site by opening `http://localhost:3000/` in your browser.
-3. Click the "Make German" button. The text on the page will switch to German, and the url will change to `http://localhost:3000/de-DE`. In the background this will set a cookie that your language preference is German.
-4. Open the base url `http://localhost:3000/` again. This will now redirect you to `http://localhost:3000/de-DE`, because of the cookie. But the text on the page will remain English instead of changing to German.
+3. View the site by opening `http://localhost:3000/` in your browser.
+4. Click the "Make German" button. The text on the page will switch to German, and the url will change to `http://localhost:3000/de-DE`. In the background this will set a cookie that your language preference is German.
+5. Open the base url `http://localhost:3000/` again. This will now redirect you to `http://localhost:3000/de-DE`, because of the cookie. But the text on the page will remain English instead of changing to German.
 
 ## Notes
 
