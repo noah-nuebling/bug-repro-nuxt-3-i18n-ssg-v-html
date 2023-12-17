@@ -21,7 +21,7 @@ Use this repo to reproduce the bug.
 ## Notes
 
 - This issue seems to not only occur with the cookie, but also when the user is redirected to the German site because of their browser language.
-- This issue only occurs if you use 
+- I noticed that this issue only occurs if you use 
     ```html
     <p v-html="$t(<some-key>)"></p>
     ``` 
