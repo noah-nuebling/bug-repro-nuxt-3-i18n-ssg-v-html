@@ -1,0 +1,17 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "nuxt generate",
+    "dev": "nuxt dev"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/i18n": "next",
+    "@types/node": "^18.19.3",
+    "nuxt": "^3.8.2"
+  },
+  "dependencies": {
+  }
+}
