@@ -6,7 +6,7 @@ Use this repo to reproduce the bug.
 
 ## Reproduction steps
 
-0. Checkout this repo to your computer (I couldn't get it to work on Stackblitz)
+1. Checkout this repo to your computer (I couldn't get it to work on Stackblitz)
     ```bash
     git clone git@github.com:noah-nuebling/bug-repro-nuxt-3-i18n-ssg-v-html.git
     ```
