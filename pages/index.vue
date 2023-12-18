@@ -7,8 +7,10 @@
  -->
 
 <template>
-  <div ref="rootElement" class="strong:box-decoration-clone"> <!-- Shouldn't this global styling be in tailwind.css? -->
 
+  <meta name="server-locale" :content="$i18n.locale">
+
+  <div ref="rootElement" class="strong:box-decoration-clone"> <!-- Shouldn't this global styling be in tailwind.css? -->
 
     <p>Using v-html="$t(...)":</p>
     <div :key="theKey" v-html="$t('test-stuff')"></div>
@@ -30,7 +32,6 @@
 <script setup lang="ts">
 
 const i18n = useI18n()
-
 
 function makeEnglish() {
   i18n.setLocale("en-US")
